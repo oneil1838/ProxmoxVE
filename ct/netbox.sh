@@ -29,7 +29,7 @@ function update_script() {
   fi
 
   TEST=$(curl -s https://github.com/netbox-community/netbox/tags | grep -m 1  /netbox-community/netbox/releases/tag/ )
-  RELEASE=echo ${TEST:99:5}
+  RELEASE=echo ${TEST:105:5}
   if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_version.txt)" ]]; then
 
     msg_info "Stopping ${APP}"
