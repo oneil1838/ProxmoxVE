@@ -28,7 +28,8 @@ function update_script() {
     exit
   fi
 
-  RELEASE=$(curl -s https://github.com/netbox-community/netbox/tags | grep -m 1  /netbox-community/netbox/releases/tag/ | awk '{print substr($5, 46, length($5)-46) }')
+  TEST=$(curl -s https://github.com/netbox-community/netbox/tags | grep -m 1  /netbox-community/netbox/releases/tag/ )
+  RELEASE=echo ${TEST:99:5}
   if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_version.txt)" ]]; then
 
     msg_info "Stopping ${APP}"
