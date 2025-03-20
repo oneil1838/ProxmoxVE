@@ -50,7 +50,8 @@ msg_ok "Set up PostgreSQL"
 
 msg_info "Installing NetBox (Patience)"
 cd /opt
-RELEASE=$(curl -s https://github.com/netbox-community/netbox/tags | grep -m 1  /netbox-community/netbox/releases/tag/ | awk '{print substr($5, 46, length($5)-46) }')
+TEST=$(curl -s https://github.com/netbox-community/netbox/tags | grep -m 1  /netbox-community/netbox/releases/tag/ )
+RELEASE=echo ${TEST:99:5}
 wget -q "https://github.com/netbox-community/netbox/archive/refs/tags/v${RELEASE}.zip"
 unzip -q "v${RELEASE}.zip"
 mv /opt/netbox-${RELEASE}/ /opt/netbox
