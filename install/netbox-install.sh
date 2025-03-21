@@ -41,7 +41,8 @@ $STD apt-get install -y \
   libffi-dev \
   libpq-dev \
   libssl-dev \
-  zlib1g-dev
+  zlib1g-dev \
+  ack
 msg_ok "Installed Dependencies"
 
 msg_info "Setting up PostgreSQL"
@@ -61,7 +62,7 @@ msg_ok "Set up PostgreSQL"
 msg_info "Installing NetBox (Patience)"
 cd /opt
 #TEST=$(curl -s https://github.com/netbox-community/netbox/tags | grep -m 1  /netbox-community/netbox/releases/tag/ )
-curl -s https://github.com/netbox-community/netbox/tags | grep -m 1  /netbox-community/netbox/releases/tag/ > testfile.txt
+curl -s https://github.com/netbox-community/netbox/tags | ack '/netbox-community/netbox/releases/tag/' -m 1 > testfile.txt
 TEST=$(echo testfile.txt)
 
 RELEASE=${TEST:105:5}
