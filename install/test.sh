@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-
-msg_info "Installing NetBox (Patience)"
 cd /opt
 echo $(curl -s https://github.com/netbox-community/netbox/tags | grep -m 1  /netbox-community/netbox/releases/tag/ ) | read message
 RELEASE="${message:105:5}"
