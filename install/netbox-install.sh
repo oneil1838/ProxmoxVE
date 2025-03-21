@@ -5,6 +5,16 @@
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
 # Source: https://netboxlabs.com/
 
+APP="NetBox"
+var_tags="network"
+var_cpu="2"
+var_ram="2048"
+var_disk="4"
+var_os="ubuntu"
+var_version="24.04"
+var_unprivileged="1"
+
+
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
 color
 verb_ip6
